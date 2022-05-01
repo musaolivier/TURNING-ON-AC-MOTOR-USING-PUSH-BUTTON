@@ -11,6 +11,39 @@ According to the traditional system of controlling an Ac motor by using electric
 
 When someone press a push button, it sends a digital signal to  Arduino , therefore Arduino U receives the signal from push button and sends it to a Transistor in order to switch  a relay for a low voltage(+5V) so that the relay  will activate ON an AC motor .
  
-# 1.3.	CIRCUIT DIAGRAM
+# 1.3.	CIRCUIT DIAGRAM IN FRITZING
  
 ![image](https://user-images.githubusercontent.com/104015191/164712539-bef9fda6-1ac3-45bf-bff2-1696c220984d.png)
+
+# 1.4 CIRCUIT IN PROTEUS
+![proteus image](https://user-images.githubusercontent.com/104015191/166152855-c27e3e65-07ed-444e-99f1-839eb1a5f419.PNG)
+
+# 1.5 COMPLING IMAGE IN ARDUINO IDE
+![arduino ide imag](https://user-images.githubusercontent.com/104015191/166152903-a2d914d4-69c6-42e0-a904-9df0dd122a0b.PNG)
+
+# SOURCE CODE:
+
+int pushbutton=8;
+int motor=3;
+int buttonstate=0;
+
+void setup() {
+  // initialize digital PIN MOTOR_ as an output.
+  pinMode(8, INPUT_PULLUP);
+  pinMode(3, OUTPUT);
+  Serial.begin(9600);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  buttonstate=digitalRead(pushbutton);
+  
+  if (buttonstate==HIGH)
+  {digitalWrite(3, HIGH);
+  Serial.println("MOTOR IS ON"); 
+  }
+  else {
+  digitalWrite(3, LOW);
+  Serial.println("MOTOR IS OFF"); 
+  }                   
+}
