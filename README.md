@@ -56,6 +56,7 @@ void loop() {
   Serial.println("MOTOR IS ON");
   
   }
+  
   else {
   
   digitalWrite(3, LOW);
